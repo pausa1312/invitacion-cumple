@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Mis 18 · Lautaro</title>
+<meta name="description" content="Invitación a los 18 de Lautaro · Sábado 28 de noviembre · Centro Español" />
+<meta property="og:title" content="Mis 18 · Lautaro" />
+<meta property="og:description" content="Sábado 28 de noviembre · 21:00 hs · Centro Español. ¡Te espero!" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="assets/logo-transparente.png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cinzel+Decorative:wght@700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@600;700&display=swap" rel="stylesheet" />
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+<style>
+  :root {
+    --oro: #e8b34a;
+    --oro-claro: #f8e3ae;
+    --oro-hondo: #a8741c;
+    --negro: #070605;
+    --texto: #f6efe2;
+    --tenue: #c9bba0;
+    --linea: rgba(232, 179, 74, 0.38);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  ::selection { background: rgba(232, 179, 74, 0.35); color: #fff; }
+
+  body {
+    background: var(--negro);
+    color: var(--texto);
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 22px;
+    line-height: 1.55;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -3;
+    background:
+      radial-gradient(50vw 42vw at 50% 18%, rgba(232, 179, 74, 0.10), transparent 62%),
+      radial-gradient(40vw 40vw at 100% 100%, rgba(232, 179, 74, 0.06), transparent 60%),
+      var(--negro);
+  }
+
+  #polvo { position: fixed; inset: 0; z-index: -1; pointer-events: none; }
+
+  .oro {
+    background: linear-gradient(180deg, var(--oro-claro) 0%, var(--oro) 46%, var(--oro-hondo) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Marco de invitación, fijo, como una tarjeta impresa */
+  .marco, .marco span {
+    position: fixed;
+    pointer-events: none;
+    z-index: 30;
+  }
+  .marco {
+    inset: 16px;
+    border: 1px solid var(--linea);
+  }
+  .marco span {
+    width: 9px;
+    height: 9px;
+    border: 1px solid var(--oro);
+    background: var(--negro);
+    transform: rotate(45deg);
+  }
+  .marco .a { top: -5px; left: -5px; }
+  .marco .b { top: -5px; right: -5px; }
+  .marco .c { bottom: -5px; left: -5px; }
+  .marco .d { bottom: -5px; right: -5px; }
+
+  .wrap { width: min(1180px, calc(100vw - 96px)); margin-inline: auto; }
+
+  .kicker {
+    font-family: "Cinzel", serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.52em;
+    text-transform: uppercase;
+    color: var(--tenue);
+  }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 72px 0 88px;
+    position: relative;
+  }
+  .hero .kicker { margin-bottom: 8px; }
+
+  .logo {
+    width: min(780px, 70vw);
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 22px 46px rgba(232, 179, 74, 0.28));
+  }
+
+  .hero-fecha {
+    margin-top: 6px;
+    font-size: 28px;
+    font-style: italic;
+    color: var(--tenue);
+  }
+
+  .cuenta {
+    margin-top: 42px;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+  }
+  .cuenta .u {
+    min-width: 108px;
+    padding: 0 22px;
+    text-align: center;
+  }
+  .cuenta .u + .u { border-left: 1px solid var(--linea); }
+  .cuenta .n {
+    font-family: "Cinzel Decorative", "Cinzel", serif;
+    font-size: 46px;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+    display: block;
+  }
+  .cuenta .l {
+    display: block;
+    margin-top: 10px;
+    font-family: "Cinzel", serif;
+    font-size: 11px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--tenue);
+  }
+
+  .bajar {
+    margin-top: 34px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    color: var(--tenue);
+    text-decoration: none;
+    font-family: "Cinzel", serif;
+    font-size: 10px;
+    letter-spacing: 0.38em;
+    text-transform: uppercase;
+  }
+  .bajar svg { width: 18px; height: 18px; animation: flotar 2.2s ease-in-out infinite; }
+  @keyframes flotar {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(6px); }
+  }
+
+  /* ---------- DETALLES ---------- */
+  .datos { padding: 28px 0 96px; }
+  .datos-fila {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid var(--linea);
+    border-bottom: 1px solid var(--linea);
+  }
+  .dato {
+    padding: 36px 28px 32px;
+    text-align: center;
+  }
+  .dato + .dato { border-left: 1px solid var(--linea); }
+  .dato .ico {
+    display: flex;
+    justify-content: center;
+    color: var(--oro);
+    margin-bottom: 14px;
+  }
+  .dato .ico svg { width: 22px; height: 22px; stroke-width: 1.4; }
+  .dato h3 {
+    font-family: "Cinzel", serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
+    color: var(--tenue);
+    margin-bottom: 10px;
+  }
+  .dato strong {
+    display: block;
+    font-weight: 500;
+    font-size: 30px;
+    letter-spacing: 0.01em;
+  }
+  .dato em {
+    display: block;
+    margin-top: 4px;
+    font-style: italic;
+    font-size: 18px;
+    color: var(--tenue);
+  }
+
+  /* ---------- LUGAR ---------- */
+  .lugar { padding: 10px 0 100px; }
+  .lugar-head { text-align: center; margin-bottom: 28px; }
+  .escena {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    border: 1px solid var(--linea);
+    background: #0c0b09;
+  }
+  .escena figure {
+    position: relative;
+    margin: 0;
+    overflow: hidden;
+    height: 400px;
+  }
+  .escena img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    filter: saturate(0.8) contrast(1.06) brightness(0.92);
+  }
+  .escena figure::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent 55%, #0c0b09 98%),
+                linear-gradient(180deg, rgba(0,0,0,.15), transparent 30%, rgba(0,0,0,.45));
+    pointer-events: none;
+  }
+  .escena .lado {
+    padding: 52px 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+  }
+  .escena .nombre {
+    font-family: "Cinzel", serif;
+    font-weight: 500;
+    font-size: 34px;
+    line-height: 1.15;
+    margin: 10px 0 8px;
+  }
+  .escena .dir {
+    color: var(--tenue);
+    font-size: 21px;
+  }
+  .escena .btn { margin-top: 26px; align-self: flex-start; }
+
+  /* ---------- BOTONES ---------- */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-family: "Cinzel", serif;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 26px;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+  }
+  .btn svg { width: 16px; height: 16px; }
+  .btn-oro {
+    color: #1c1404;
+    background: linear-gradient(180deg, #f6e2ae, #e0aa3a 55%, #c48a22);
+    box-shadow: 0 10px 28px rgba(232, 179, 74, 0.22);
+  }
+  .btn-oro:hover { transform: translateY(-2px); box-shadow: 0 16px 36px rgba(232, 179, 74, 0.34); }
+  .btn-linea {
+    color: var(--oro-claro);
+    background: transparent;
+    border-color: var(--linea);
+  }
+  .btn-linea:hover { transform: translateY(-2px); border-color: var(--oro); }
+  .btn-wsp {
+    color: #042413;
+    background: linear-gradient(180deg, #5eeb98, #1fad55);
+    box-shadow: 0 10px 28px rgba(37, 211, 102, 0.22);
+  }
+  .btn-wsp:hover { transform: translateY(-2px); box-shadow: 0 16px 36px rgba(37, 211, 102, 0.34); }
+
+  /* ---------- RSVP ---------- */
+  .rsvp { padding: 10px 0 80px; text-align: center; }
+  .rsvp .kicker { display: block; margin-bottom: 16px; }
+  .rsvp h2 {
+    font-family: "Cinzel", serif;
+    font-weight: 500;
+    font-size: clamp(40px, 5vw, 64px);
+    letter-spacing: 0.04em;
+    margin-bottom: 14px;
+  }
+  .rsvp p {
+    max-width: 520px;
+    margin: 0 auto 32px;
+    color: var(--tenue);
+    font-size: 23px;
+    font-style: italic;
+  }
+  .botonera { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
+  .oculto { display: none !important; }
+
+  footer {
+    text-align: center;
+    padding: 10px 20px 56px;
+    color: var(--tenue);
+  }
+  footer .cierre {
+    font-family: "Cinzel Decorative", "Cinzel", serif;
+    font-size: 28px;
+    margin-bottom: 8px;
+  }
+  footer .pie { font-size: 18px; }
+
+  /* Botón fijo, solo celular */
+  .fab {
+    display: none;
+    position: fixed;
+    z-index: 40;
+    right: 20px;
+    bottom: calc(26px + env(safe-area-inset-bottom));
+    align-items: center;
+    gap: 10px;
+    padding: 7px 18px 7px 7px;
+    border-radius: 999px;
+    text-decoration: none;
+    color: #fff;
+    background: linear-gradient(180deg, #2fe07a 0%, #18a957 100%);
+    box-shadow:
+      0 14px 32px rgba(0, 0, 0, 0.5),
+      0 0 0 1px rgba(232, 179, 74, 0.55),
+      0 0 22px rgba(37, 211, 102, 0.35);
+    font-family: "Manrope", sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: -0.01em;
+    line-height: 1;
+  }
+  .fab .burbuja {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #fff;
+    color: #1da851;
+    display: grid;
+    place-items: center;
+    flex: none;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.04);
+  }
+  .fab svg { width: 22px; height: 22px; display: block; }
+  .fab::after {
+    content: "";
+    position: absolute;
+    inset: -5px;
+    border-radius: inherit;
+    border: 1.5px solid rgba(46, 224, 122, 0.65);
+    animation: pulso 2.4s ease-out infinite;
+    pointer-events: none;
+  }
+  @keyframes pulso {
+    0% { transform: scale(1); opacity: 0.7; }
+    100% { transform: scale(1.14); opacity: 0; }
+  }
+
+  .js .aparecer { opacity: 0; }
+
+  @media (max-width: 980px) {
+    .wrap { width: min(1180px, calc(100vw - 56px)); }
+    .datos-fila { grid-template-columns: 1fr 1fr; }
+    .dato:nth-child(3) { border-left: 0; border-top: 1px solid var(--linea); }
+    .dato:nth-child(4) { border-top: 1px solid var(--linea); }
+    .escena { grid-template-columns: 1fr; }
+    .escena figure::after { background: linear-gradient(180deg, transparent 50%, #0c0b09 98%); }
+    .escena .lado { padding: 8px 28px 36px; text-align: center; align-items: center; }
+    .escena .btn { align-self: center; }
+    .marco { inset: 10px; }
+  }
+  @media (max-width: 640px) {
+    .datos-fila { grid-template-columns: 1fr; }
+    .dato + .dato { border-left: 0; border-top: 1px solid var(--linea); }
+    .dato:nth-child(3) { border-left: 0; }
+    .cuenta .u { min-width: 72px; padding: 0 10px; }
+    .cuenta .n { font-size: 32px; }
+    .logo { width: min(860px, 92vw); }
+    .hero-fecha { font-size: 22px; }
+    .fab { display: inline-flex; }
+    footer { padding-bottom: 96px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .bajar svg, .fab::after { animation: none; }
+    .js .aparecer { opacity: 1; }
+  }
+</style>
+</head>
+<body>
+  <canvas id="polvo" aria-hidden="true"></canvas>
+  <div class="marco" aria-hidden="true"><span class="a"></span><span class="b"></span><span class="c"></span><span class="d"></span></div>
+
+  <header class="hero">
+    <p class="kicker aparecer">Estás invitado</p>
+    <img class="logo aparecer" src="assets/logo-transparente.png" alt="Mis 18 años · Lauti" />
+    <p class="hero-fecha aparecer">Sábado 28 de noviembre</p>
+
+    <div class="cuenta aparecer" id="cuenta">
+      <div class="u"><span class="n oro" id="dias">--</span><span class="l">Días</span></div>
+      <div class="u"><span class="n oro" id="horas">--</span><span class="l">Horas</span></div>
+      <div class="u"><span class="n oro" id="min">--</span><span class="l">Minutos</span></div>
+      <div class="u"><span class="n oro" id="seg">--</span><span class="l">Segundos</span></div>
+    </div>
+
+    <a class="bajar" href="#datos">Deslizá <i data-lucide="chevron-down"></i></a>
+  </header>
+
+  <main>
+    <section class="datos" id="datos">
+      <div class="wrap">
+        <div class="datos-fila">
+          <article class="dato aparecer">
+            <div class="ico"><i data-lucide="calendar"></i></div>
+            <h3>Día</h3>
+            <strong>Sábado 28</strong>
+            <em>de noviembre</em>
+          </article>
+          <article class="dato aparecer">
+            <div class="ico"><i data-lucide="clock"></i></div>
+            <h3>Hora</h3>
+            <strong>21:00 hs</strong>
+            <em>hasta las 05:00 am</em>
+          </article>
+          <article class="dato aparecer">
+            <div class="ico"><i data-lucide="landmark"></i></div>
+            <h3>Salón</h3>
+            <strong>Centro Español</strong>
+            <em>San Francisco Solano</em>
+          </article>
+          <article class="dato aparecer">
+            <div class="ico"><i data-lucide="map-pin"></i></div>
+            <h3>Dirección</h3>
+            <strong>2219</strong>
+            <em>entre 893 y 894</em>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="lugar">
+      <div class="wrap">
+        <div class="lugar-head aparecer">
+          <p class="kicker">Cómo llegar</p>
+        </div>
+        <div class="escena aparecer">
+          <figure>
+            <img src="assets/salon.jpg" alt="Fachada del Centro Español" />
+          </figure>
+          <div class="lado">
+            <p class="kicker">El salón</p>
+            <h2 class="nombre oro">Centro Español</h2>
+            <p class="dir">Centro Español 2219<br />entre 893 y 894<br />San Francisco Solano</p>
+            <a id="btn-maps" class="btn btn-oro" href="https://maps.app.goo.gl/L7qhcPWzVjMTVZY68" target="_blank" rel="noopener">
+              <i data-lucide="navigation"></i> Abrir en Google Maps
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="rsvp" id="confirmar">
+      <div class="wrap">
+        <span class="kicker aparecer">Confirmación</span>
+        <h2 class="oro aparecer">¿Venís?</h2>
+        <p class="aparecer">Confirmame por WhatsApp así te guardo el lugar.</p>
+        <div class="botonera aparecer">
+          <a id="btn-wsp-si" class="btn btn-wsp" href="#" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M20.5 3.5A11 11 0 0 0 2.1 17.8L1 23l5.4-1.1A11 11 0 0 0 20.5 3.5zm-8.5 17a9.1 9.1 0 0 1-4.6-1.3l-.3-.2-3.2.7.7-3.1-.2-.3A9.1 9.1 0 1 1 12 20.5zm5-6.8c-.3-.1-1.6-.8-1.8-.9s-.4-.1-.6.1-.7.9-.8 1-.3.2-.6.1a7.4 7.4 0 0 1-2.2-1.4 8.2 8.2 0 0 1-1.5-1.9c-.2-.3 0-.4.1-.6l.4-.5.2-.3a.5.5 0 0 0 0-.5c-.1-.1-.6-1.4-.8-1.9s-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 2.9 2.9 0 0 0-.9 2.2 5 5 0 0 0 1.1 2.7 11.5 11.5 0 0 0 4.4 3.9 14 14 0 0 0 1.5.5 3.6 3.6 0 0 0 1.6.1 2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .2-1.2c-.1-.1-.3-.2-.6-.3z"/></svg>
+            Confirmar por WhatsApp
+          </a>
+          <a id="btn-wsp-no" class="btn btn-linea" href="#" target="_blank" rel="noopener">No voy a poder</a>
+          <a id="btn-form" class="btn btn-oro oculto" href="#" target="_blank" rel="noopener">
+            <i data-lucide="clipboard-list"></i> Confirmar por formulario
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p class="cierre oro">¡Te espero!</p>
+    <p class="pie">Sábado 28 de noviembre · Centro Español</p>
+  </footer>
+
+  <a id="btn-wsp-fab" class="fab" href="#" target="_blank" rel="noopener">
+    <span class="burbuja">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </span>
+    Mandar confirmación
+  </a>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+  document.documentElement.classList.add("js");
+
+  /* ============================================================
+     CONFIGURACIÓN — cambiá SOLO estos valores
+     ============================================================ */
+  const WHATSAPP_NUMERO = "";
+  const GOOGLE_FORM_URL = "";
+  const MAPS_URL = "https://maps.app.goo.gl/L7qhcPWzVjMTVZY68";
+  const FECHA_EVENTO = new Date("2026-11-28T21:00:00-03:00");
+
+  const MSJ_SI = "\u00A1Hola Lautaro! Confirmo que voy a estar en tus 18 el s\u00E1bado 28/11. \u00A1Gracias por invitarme!";
+  const MSJ_NO = "\u00A1Hola Lautaro! Te agradezco la invitaci\u00F3n a tus 18, pero esta vez no voy a poder acompa\u00F1arte. \u00A1Que la pases genial!";
+
+  (function () {
+    const base = WHATSAPP_NUMERO ? "https://wa.me/" + WHATSAPP_NUMERO : "https://wa.me/";
+    const linkSi = base + "?text=" + encodeURIComponent(MSJ_SI);
+    document.getElementById("btn-wsp-si").href = linkSi;
+    document.getElementById("btn-wsp-fab").href = linkSi;
+    document.getElementById("btn-wsp-no").href = base + "?text=" + encodeURIComponent(MSJ_NO);
+    if (GOOGLE_FORM_URL) {
+      const form = document.getElementById("btn-form");
+      form.href = GOOGLE_FORM_URL;
+      form.classList.remove("oculto");
+    }
+    if (MAPS_URL) document.getElementById("btn-maps").href = MAPS_URL;
+  })();
+
+  (function () {
+    const dias = document.getElementById("dias");
+    const horas = document.getElementById("horas");
+    const min = document.getElementById("min");
+    const seg = document.getElementById("seg");
+    const cont = document.getElementById("cuenta");
+    const dos = (n) => String(n).padStart(2, "0");
+    function tick() {
+      let dif = FECHA_EVENTO - new Date();
+      if (dif <= 0) {
+        cont.innerHTML = '<p class="oro" style="font-family:Cinzel,serif;font-size:28px">\u00A1Lleg\u00F3 el gran d\u00EDa!</p>';
+        return;
+      }
+      const d = Math.floor(dif / 86400000); dif -= d * 86400000;
+      const h = Math.floor(dif / 3600000); dif -= h * 3600000;
+      const m = Math.floor(dif / 60000); dif -= m * 60000;
+      const s = Math.floor(dif / 1000);
+      dias.textContent = d;
+      horas.textContent = dos(h);
+      min.textContent = dos(m);
+      seg.textContent = dos(s);
+    }
+    tick();
+    setInterval(tick, 1000);
+  })();
+
+  if (window.lucide) lucide.createIcons();
+
+  (function () {
+    const c = document.getElementById("polvo");
+    const ctx = c.getContext("2d");
+    let w, h, dots;
+    function size() {
+      w = c.width = innerWidth;
+      h = c.height = innerHeight;
+      const n = Math.min(70, Math.floor(w / 22));
+      dots = Array.from({ length: n }, () => ({
+        x: Math.random() * w,
+        y: Math.random() * h,
+        r: Math.random() * 1.3 + 0.3,
+        vy: -(Math.random() * 0.22 + 0.05),
+        vx: (Math.random() - 0.5) * 0.12,
+        a: Math.random() * 0.45 + 0.08
+      }));
+    }
+    function frame() {
+      ctx.clearRect(0, 0, w, h);
+      for (const p of dots) {
+        p.x += p.vx;
+        p.y += p.vy;
+        if (p.y < -4) { p.y = h + 4; p.x = Math.random() * w; }
+        ctx.globalAlpha = p.a;
+        ctx.fillStyle = "#e8b34a";
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      ctx.globalAlpha = 1;
+      requestAnimationFrame(frame);
+    }
+    size();
+    frame();
+    addEventListener("resize", size);
+  })();
+
+  window.addEventListener("load", function () {
+    const items = document.querySelectorAll(".aparecer");
+    if (!window.gsap || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      items.forEach((el) => { el.style.opacity = 1; });
+      return;
+    }
+    gsap.registerPlugin(ScrollTrigger);
+    const hero = document.querySelectorAll(".hero .aparecer");
+    gsap.to(hero, { opacity: 1, y: 0, duration: 1.05, stagger: 0.12, ease: "power3.out", delay: 0.05 });
+    gsap.utils.toArray("main .aparecer, footer .cierre").forEach((el) => {
+      gsap.fromTo(el, { opacity: 0, y: 28 }, {
+        opacity: 1, y: 0, duration: 0.85, ease: "power3.out",
+        scrollTrigger: { trigger: el, start: "top 88%" }
+      });
+    });
+  });
+</script>
+</body>
+</html>
